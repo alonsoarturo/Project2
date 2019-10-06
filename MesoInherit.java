@@ -5,8 +5,10 @@ import java.io.IOException;
 public class MesoInherit extends MesoAbstract {
 
 	private MesoStation stationID;
+	private String StringStation;
 	protected String[] stationArray = new String[10];
 	protected int numStations = 0;
+
 	
 	public MesoInherit(MesoStation mesoStation) {
 		this.stationID = mesoStation;
@@ -30,10 +32,11 @@ public class MesoInherit extends MesoAbstract {
 	     strg = br.readLine();
 	     strg = br.readLine();
 	     strg = br.readLine();
+	    
 	     
-	     //Read the characters 4 - 7 in.to the HammingArray
+	     //Read the characters 1 - 5 in.to the HammingArray
 	     while (strg != null) {
-	    	stationArray[numStations] = strg.substring(4, 8);
+	    	stationArray[numStations] = strg.substring(1, 5);
 	    
 	    	numStations++;
 	    	
@@ -61,28 +64,34 @@ public class MesoInherit extends MesoAbstract {
 	}
 	
 	public int[] calAverage() {
-		
-		int[] asciiVal = {0, 0, 0, };//new int[4];
+		int[] calAvg = new int[3];
+		int[] asciiVal = new int[4];
 		double asciiAvg = 0.0;
 		
-	//	for (int i = 0; i < 4; i++) {
-	//		asciiVal[i] = (int) stationID.toString().charAt(i);
-	//	}
+		for (int i = 0; i < 4; i++) {
+			asciiVal[i] = (int) stationID.toString().charAt(i);
+		}
 		
-	//	asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
+		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
 		
-	//	calAverage()[0] = (int) Math.ceil(asciiAvg);
+		calAvg[0] = (int) Math.ceil(asciiAvg);
 		
-	//	calAverage()[1] = (int) Math.floor(asciiAvg);
+		calAvg[1] = (int) Math.floor(asciiAvg);
 		
-	//	calAverage()[2] = (int) Math.round(asciiAvg);
+		calAvg[2] = (int) Math.round(asciiAvg);
 		
-		return asciiVal;
+		return calAvg;
 	}
 
 	public String letterAverage() {
 		
-		return null;
+		char letterVal = (char) calAverage()[2];
+		
+		return Character.toString(letterVal);
+	}
+	
+	public MesoInherit() {
+		// TODO Auto-generated constructor stub
 	}
 
 }

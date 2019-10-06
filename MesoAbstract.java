@@ -11,4 +11,5 @@ public abstract class MesoAbstract
 //	public abstract char letterAverage() {
 //		return null;
 //	}
+
 }
