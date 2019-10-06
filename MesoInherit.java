@@ -2,12 +2,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MesoInherit {
+public class MesoInherit extends MesoAbstract {
 
 	private MesoStation stationID;
+	protected String[] stationArray = new String[10];
+	protected int numStations = 0;
 	
 	public MesoInherit(MesoStation mesoStation) {
 		this.stationID = mesoStation;
+		
+		try {
+			read("Mesonet.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void read(String filename) throws IOException {
@@ -24,13 +33,13 @@ public class MesoInherit {
 	     
 	     //Read the characters 4 - 7 in.to the HammingArray
 	     while (strg != null) {
-	    	HammingArray[numStations] = strg.substring(4, 8);
+	    	stationArray[numStations] = strg.substring(4, 8);
 	    
 	    	numStations++;
 	    	
 	    	strg = br.readLine();
 	    	
-	    	if (numStations >= HammingArray.length) {
+	    	if (numStations >= stationArray.length) {
 	    		expandArray();
 	    	}
 	     }
@@ -38,24 +47,37 @@ public class MesoInherit {
 	     br.close();
 	}
 	
-	public String[] calAverage() {
+	public void expandArray() {
+   	 
+	    int newNumStations = numStations * 2;
+	    String[] temp = new String[newNumStations];
+	         
+	    for(int i = 0; i < stationArray.length; i++) {
+	         	temp[i] = stationArray[i];
+	         }
+	    
+	    stationArray = temp;
+	    
+	}
+	
+	public int[] calAverage() {
 		
-		int[] asciiVal = new int[4];
+		int[] asciiVal = {0, 0, 0, };//new int[4];
 		double asciiAvg = 0.0;
 		
-		for (int i = 0; i < 4; i++) {
-			asciiVal[i] = (int) stationID.toString().charAt(i);
-		}
+	//	for (int i = 0; i < 4; i++) {
+	//		asciiVal[i] = (int) stationID.toString().charAt(i);
+	//	}
 		
-		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
+	//	asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
 		
-		calAverage()[0] = Double.toString(Math.ceil(asciiAvg));
+	//	calAverage()[0] = (int) Math.ceil(asciiAvg);
 		
-		calAverage()[1] = Double.toString(Math.floor(asciiAvg));
+	//	calAverage()[1] = (int) Math.floor(asciiAvg);
 		
-		calAverage()[2] = Double.toString(Math.round(asciiAvg));
+	//	calAverage()[2] = (int) Math.round(asciiAvg);
 		
-		return null;
+		return asciiVal;
 	}
 
 	public String letterAverage() {
