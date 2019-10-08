@@ -86,11 +86,12 @@ public class MesoInherit extends MesoAbstract {
 	public String letterAverage() {
 		
 		char letterVal = (char) calAverage()[2];
+		String resultLetter = Character.toString(letterVal);
 		
-		return Character.toString(letterVal);
+		return resultLetter.toUpperCase();
 	}
 	
-	public MesoInherit() {
+	protected MesoInherit() {
 		// TODO Auto-generated constructor stub
 	}
 
