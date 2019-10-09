@@ -10,7 +10,7 @@ public class PosAvg {
 	//protected ArrayList<String> 
 	
 	protected String stationID = "";
-	private int index = 0;
+	private int index;
 	
 	public PosAvg() {
 		
@@ -33,16 +33,34 @@ public class PosAvg {
 			
 			e.printStackTrace();
 		}
-		
-		//toString();
+		this.index = indexOfStation();
+		toString();
 		
 	}
 	
-
-	public String toString() {
+	public int indexOfStation() {
 		
-	return String.format("This index is average of %s and %s, %s and %s, and so on.", 
-			stationArray[index - 1], stationArray[index + 1], stationArray[index - 2], stationArray[index + 2]);
+		for (int i = 0; i < numStations; i++) {
+			if (stationID.equals(stationArray[i])) {
+				index = i;
+			}
+		}
+		
+		return index + 1;
+	}
+	
+	public String toString() {
+		//index = index - 3;
+	
+		String indexBefore = stationArray[index - 1];
+		String indexAfter = stationArray[index + 1];
+		String indexBeforeBefore = stationArray[index - 2];
+		String indexAfterAfter = stationArray[index + 2];
+		
+//		return String.format("This index is average of %s and %s, %s and %s, and so on.", 
+//				indexBefore, indexAfter, indexBeforeBefore, indexAfterAfter);
+//	
+		return "This index is average of " + indexBefore + " and " + indexAfter + ", " + indexBeforeBefore + " and " + indexAfterAfter + ", and so on.";
 	}
 	
 	
@@ -91,17 +109,6 @@ public class PosAvg {
 	public String[] getArray() {
 		
 		return stationArray;
-	}
-	
-	public int indexOfStation() {
-		
-		for (int i = 0; i < numStations; i++) {
-			if (stationID.equals(stationArray[i])) {
-				index = i;
-			}
-		}
-		
-		return index + 1;
 	}
 	
 }
