@@ -28,17 +28,19 @@ public class MesoInherit extends MesoAbstract {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String letterAverage() {
+	public char letterAverage() {
 		
 		char letterVal = (char) calAverage()[2];
 		String resultLetter = Character.toString(letterVal);
+		resultLetter = resultLetter.toUpperCase();
+		char charVal = resultLetter.charAt(0);
 		
-		return resultLetter.toUpperCase();
+		return charVal;
 
 }
 
 	public int[] calAverage() {
-		int[] doublecalAvg = new int[3];
+		
 		double[] asciiVal = new double[4];
 		double asciiAvg = 0.0;
 		
@@ -46,7 +48,7 @@ public class MesoInherit extends MesoAbstract {
 			asciiVal[i] = (double) stationID.toString().charAt(i);
 		}
 		
-		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
+		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4.0;
 		
 		calAverage()[0] = (int) Math.ceil(asciiAvg);
 		
