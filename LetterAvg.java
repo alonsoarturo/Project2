@@ -13,7 +13,7 @@ public class LetterAvg extends PosAvg {
 		String[] sameLetterArray = new String[10];
 		
 		for (int i = 0; i < numStations; i++) {
-			if (Character.toString(stationArray[i].charAt(0)).equals(letter)) {
+			if (stationArray[i].charAt(0) == letter) {
 				++stationsWithSameLetter;
 			
 			}
