@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class LetterAvg extends PosAvg {
 
-	private ArrayList<String> sameLetterArray = new ArrayList();
+	private ArrayList<String> sameLetterArray = new ArrayList<String>();
 	private char letter;
 
 	
