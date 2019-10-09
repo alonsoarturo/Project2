@@ -33,8 +33,8 @@ public class PosAvg {
 			
 			e.printStackTrace();
 		}
-		this.index = indexOfStation();
-		toString();
+		//this.index = indexOfStation();
+		//toString();
 		
 	}
 	
@@ -51,16 +51,16 @@ public class PosAvg {
 	
 	public String toString() {
 		//index = index - 3;
-	
+		this.index = indexOfStation() - 1;
 		String indexBefore = stationArray[index - 1];
 		String indexAfter = stationArray[index + 1];
 		String indexBeforeBefore = stationArray[index - 2];
 		String indexAfterAfter = stationArray[index + 2];
 		
-//		return String.format("This index is average of %s and %s, %s and %s, and so on.", 
-//				indexBefore, indexAfter, indexBeforeBefore, indexAfterAfter);
-//	
-		return "This index is average of " + indexBefore + " and " + indexAfter + ", " + indexBeforeBefore + " and " + indexAfterAfter + ", and so on.";
+		return String.format("This index is average of %s and %s, %s and %s, and so on.", 
+				indexBefore, indexAfter, indexBeforeBefore, indexAfterAfter);
+	
+		//return "This index is average of " + indexBefore + " and " + indexAfter + ", " + indexBeforeBefore + " and " + indexAfterAfter + ", and so on.";
 	}
 	
 	
