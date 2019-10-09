@@ -17,7 +17,7 @@ public class PosAvg {
 		try {
 			read("Mesonet.txt");
 		} catch (IOException e) {
-			
+			System.out.println("error printing from file");
 			e.printStackTrace();
 		}
 	

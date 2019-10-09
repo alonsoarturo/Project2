@@ -1,7 +1,10 @@
+import java.util.ArrayList;
 
 public class LetterAvg extends PosAvg {
 
-	char letter;
+	private ArrayList<String> sameLetterArray = new ArrayList();
+	private char letter;
+
 	
 	public LetterAvg(char letterAverage) {
 		this.letter = letterAverage;
@@ -10,18 +13,24 @@ public class LetterAvg extends PosAvg {
 	public int numberOfStationWithLetterAvg() {
 		
 		int stationsWithSameLetter = 0;
-		String[] sameLetterArray = new String[10];
 		
 		for (int i = 0; i < numStations; i++) {
 			if (stationArray[i].charAt(0) == letter) {
 				++stationsWithSameLetter;
-			
+				sameLetterArray.add(stationArray[i]);
 			}
 		}
 		return stationsWithSameLetter;
 	}
 
 	public String toString() {
-		return "\nThey are:\nYeehaw\nyeet"; //String.format("" );
+		
+		String returnString = "\nThey are:";
+		
+		for (int i = 0; i < sameLetterArray.size()) {
+			returnString += "\n" + sameLetterArray.get(i)
+		}
+		
+		return returnString;
 	}
 }
