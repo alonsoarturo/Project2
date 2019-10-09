@@ -8,7 +8,7 @@ public class MesoInherit extends MesoAbstract {
 	private String StringStation;
 	protected String[] stationArray;
 	protected int numStations = 0;
-
+	private int index = 0;
 	
 	public MesoInherit(MesoStation mesoStation) {
 		
@@ -40,7 +40,7 @@ public class MesoInherit extends MesoAbstract {
 }
 
 	public int[] calAverage() {
-		
+		int[] calAvg = new int[3];
 		double[] asciiVal = new double[4];
 		double asciiAvg = 0.0;
 		
@@ -50,12 +50,13 @@ public class MesoInherit extends MesoAbstract {
 		
 		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4.0;
 		
-		calAverage()[0] = (int) Math.ceil(asciiAvg);
+		calAvg[0] = (int) Math.ceil(asciiAvg);
 		
-		calAverage()[1] = (int) Math.floor(asciiAvg);
+		calAvg[1] = (int) Math.floor(asciiAvg);
 		
-		calAverage()[2] = (int) Math.round(asciiAvg);
+		calAvg[2] = (int) Math.round(asciiAvg);
 		
-		return calAverage();
+		return calAvg;
 	}
+	
 }

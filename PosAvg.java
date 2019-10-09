@@ -5,7 +5,7 @@ import java.io.IOException;
 public class PosAvg {
 	
 	private String StringStation;
-	protected String[] stationArray;
+	protected String[] stationArray = new String[10];
 	protected int numStations = 0;
 	//protected ArrayList<String> 
 	
@@ -38,18 +38,6 @@ public class PosAvg {
 		
 	}
 	
-	public int indexOfStation() {
-		
-	int i = 0;
-		
-		while (i < numStations) {
-			if (stationID.equals(stationArray[i])) {
-				index = i;
-			}
-		}
-		
-		return index + 1;
-	}
 
 	public String toString() {
 		
@@ -103,6 +91,17 @@ public class PosAvg {
 	public String[] getArray() {
 		
 		return stationArray;
+	}
+	
+	public int indexOfStation() {
+		
+		for (int i = 0; i < numStations; i++) {
+			if (stationID.equals(stationArray[i])) {
+				index = i;
+			}
+		}
+		
+		return index + 1;
 	}
 	
 }
