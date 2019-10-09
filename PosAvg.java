@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 public class PosAvg {
 	
+	private String StringStation;
+	protected String[] stationArray = new String[10];
+	protected int numStations = 0;
+	
 	private String stationID = "";
 	private int index = 0;
 	private ArrayList <String> sameAvgArray = new ArrayList();
@@ -42,6 +46,30 @@ public class PosAvg {
 		return index + 1;
 	}
 
+	
+	public int[] calAverage() {
+		int[] doublecalAvg = new int[3];
+		double[] asciiVal = new double[4];
+		double asciiAvg = 0.0;
+		
+		for (int i = 0; i < 4; i++) {
+			asciiVal[i] = (double) stationID.toString().charAt(i);
+		}
+		
+		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
+		
+		calAverage()[0] = (int) Math.ceil(asciiAvg);
+		
+		calAverage()[1] = (int) Math.floor(asciiAvg);
+		
+		calAverage()[2] = (int) Math.round(asciiAvg);
+		
+		return calAverage();
+	}
+
+
+
+	
 	public String toString() {
 		return null;
 		
@@ -91,6 +119,11 @@ public class PosAvg {
 	    
 	    stationArray = temp;
 	    
+	}
+
+	public String[] getArray() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

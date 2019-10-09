@@ -13,7 +13,7 @@ public class MesoInherit extends MesoAbstract {
 	public MesoInherit(MesoStation mesoStation) {
 		this.stationID = mesoStation;
 		PosAvg temp = new PosAvg();
-		word[] = temp.getArray();
+		stationArray = temp.getArray();
 		
 	}
 
@@ -23,24 +23,10 @@ public class MesoInherit extends MesoAbstract {
 		
 	}
 	
-	public int[] calAverage() {
-		int[] calAvg = new int[3];
-		int[] asciiVal = new int[4];
-		double asciiAvg = 0.0;
-		
-		for (int i = 0; i < 4; i++) {
-			asciiVal[i] = (int) stationID.toString().charAt(i);
-		}
-		
-		asciiAvg = (asciiVal[0] + asciiVal[1] + asciiVal[2] + asciiVal[3]) / 4;
-		
-		calAvg[0] = (int) Math.ceil(asciiAvg);
-		
-		calAvg[1] = (int) Math.floor(asciiAvg);
-		
-		calAvg[2] = (int) Math.round(asciiAvg);
-		
-		return calAvg;
+	
+	
+	protected MesoInherit() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String letterAverage() {
@@ -49,10 +35,12 @@ public class MesoInherit extends MesoAbstract {
 		String resultLetter = Character.toString(letterVal);
 		
 		return resultLetter.toUpperCase();
-	}
-	
-	protected MesoInherit() {
-		// TODO Auto-generated constructor stub
-	}
 
+}
+
+	@Override
+	int[] calAverage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
