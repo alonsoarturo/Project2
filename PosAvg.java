@@ -41,8 +41,8 @@ public class PosAvg {
 
 	public String toString() {
 		
-	return "This indexis average";//String.format("This index is average of %s and %s, %s and %s, and so on.", 
-			//stationArray[index - 1], stationArray[index + 1], stationArray[index - 2], stationArray[index + 2]);
+	return String.format("This index is average of %s and %s, %s and %s, and so on.", 
+			stationArray[index - 1], stationArray[index + 1], stationArray[index - 2], stationArray[index + 2]);
 	}
 	
 	

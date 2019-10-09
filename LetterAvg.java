@@ -27,8 +27,8 @@ public class LetterAvg extends PosAvg {
 		
 		String returnString = "\nThey are:";
 		
-		for (int i = 0; i < sameLetterArray.size()) {
-			returnString += "\n" + sameLetterArray.get(i)
+		for (int i = 0; i < sameLetterArray.size(); i++) {
+			returnString += "\n" + sameLetterArray.get(i);
 		}
 		
 		return returnString;
