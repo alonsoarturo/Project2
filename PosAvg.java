@@ -7,9 +7,9 @@ public class PosAvg {
 	private String StringStation;
 	protected String[] stationArray;
 	protected int numStations = 0;
-	protected ArrayList<String> 
+	//protected ArrayList<String> 
 	
-	private String stationID;
+	protected String stationID = "";
 	private int index = 0;
 	
 	public PosAvg() {

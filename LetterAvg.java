@@ -1,9 +1,9 @@
 
-public class LetterAvg extends MesoInherit {
+public class LetterAvg extends PosAvg {
 
-	String letter = "";
+	char letter;
 	
-	public LetterAvg(String letterAverage) {
+	public LetterAvg(char letterAverage) {
 		this.letter = letterAverage;
 	}
 
