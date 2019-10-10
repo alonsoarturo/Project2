@@ -8,6 +8,8 @@ public class LetterAvg extends PosAvg {
 	
 	public LetterAvg(char letterAverage) {
 		this.letter = letterAverage;
+	
+		toString();
 	}
 
 	public int numberOfStationWithLetterAvg() {
