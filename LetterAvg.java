@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class LetterAvg extends PosAvg {
 
-	private ArrayList<String> sameLetterArray = new ArrayList<String>();
+	private ArrayList<String> sameLetterArray;
 	private char letter;
 
 	
 	public LetterAvg(char letterAverage) {
 		this.letter = letterAverage;
-	
+		
 		toString();
 	}
 
@@ -19,18 +19,30 @@ public class LetterAvg extends PosAvg {
 		for (int i = 0; i < numStations; i++) {
 			if (stationArray[i].charAt(0) == letter) {
 				++stationsWithSameLetter;
-				sameLetterArray.add(stationArray[i]);
 			}
 		}
 		return stationsWithSameLetter;
 	}
 
+	public ArrayList<String> getValues() {
+		
+		ArrayList<String> returnArray = new ArrayList<String>();
+		for (int i = 0; i < numStations; i++) {
+			if (stationArray[i].charAt(0) == letter) {
+				returnArray.add(stationArray[i]);
+			}
+		}
+		return returnArray;
+	}
+	
 	public String toString() {
+		ArrayList<String> temp = getValues();
+		//numberOfStationWithLetterAvg();
 		
 		String returnString = "\nThey are:";
 		
-		for (int i = 0; i < sameLetterArray.size(); i++) {
-			returnString += "\n" + sameLetterArray.get(i);
+		for (int i = 0; i < temp.size(); i++) {
+			returnString += "\n" + temp.get(i);
 		}
 		
 		return returnString;
